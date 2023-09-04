@@ -1,5 +1,23 @@
 class Solution {
 public:
+    
+    void removeOccure(string &s, string part){
+        int found = s.find(part);
+        
+        if(found!=string::npos)
+        {
+            string left_substr = s.substr(0,found);
+            string right_substr = s.substr(found+part.length(),s.size()-1);
+            s= left_substr + right_substr;
+        
+        }
+        else{
+            return;
+        }
+        
+        removeOccure(s,part);
+        
+    }
     string removeOccurrences(string s, string part) {
         int pos= s.find(part);
          while(pos!= string::npos)
@@ -9,6 +27,11 @@ public:
         } 
         return s;  
 
+         removeOccure(s,part);
+        return s;
+        
+        //  this is my own incomplete solution..-->
+        
         // int ele = part.length();
         // int i=0;
         // int j;
