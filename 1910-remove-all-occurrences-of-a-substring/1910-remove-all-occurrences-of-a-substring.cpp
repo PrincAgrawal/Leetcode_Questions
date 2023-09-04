@@ -19,16 +19,21 @@ public:
         
     }
     string removeOccurrences(string s, string part) {
-        int pos= s.find(part);
-         while(pos!= string::npos)
-        {
-            s.erase(pos,part.length());
-             pos= s.find(part);
-        } 
-        return s;  
-
-         removeOccure(s,part);
+        
+    // Method-1 --> 
+        
+        // int pos= s.find(part);
+        //  while(pos!= string::npos)
+        // {
+        //     s.erase(pos,part.length());
+        //      pos= s.find(part);
+        // } 
+        // return s;
+        
+   //Method-2 -->      
+        removeOccure(s,part);
         return s;
+        
         
         //  this is my own incomplete solution..-->
         
