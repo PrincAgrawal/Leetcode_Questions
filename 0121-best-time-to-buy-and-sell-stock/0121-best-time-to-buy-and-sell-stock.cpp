@@ -1,17 +1,34 @@
 class Solution {
 public:
-    int maxProfit(vector<int>&nums){
+    void maxProfitFinder(vector<int>&prices , int i, int &minPrice,int &maxProfit)
+    {
+         //base case
+        if(i==prices.size()) 
+            return;
+         
+        //ek case -->
+        if(prices[i]<minPrice) minPrice=prices[i];
+        int todayProfit= prices[i]-minPrice;
+        if(todayProfit >maxProfit)
+            maxProfit=todayProfit;
+        
+        
+        maxProfitFinder(prices,i+1,minPrice,maxProfit);
+    }
+    int maxProfit(vector<int>&prices){
+        int maxProfit=INT_MIN;
+        int minPrice=INT_MAX;
+      maxProfitFinder(prices,0,minPrice,maxProfit);
+        return maxProfit;
 //         int mini=INT_MAX;
 //         int i;
 //         int min_index;
-//         for( i=0;i<prices.size();i++){
-//             if(prices[i]<mini){
+//         for( i=0;i<prices.size()-1;i++){
+//             if(prices[i]<mini && prices[i]!=0){
 //                 mini=prices[i];
 //                 min_index=i;
 //             }
 //         }
-        
-//         if(min_index==prices.size()) return 0;
         
 //         int max_profit=0;
 //         for(int j=min_index+1;j<prices.size();j++)
@@ -54,14 +71,14 @@ public:
 //             }
 //         }
 //     return m;
-        int mp=0;
-        int m=nums[0];
-        for(int i=0;i<nums.size();i++)
-        {
-            m=min(m,nums[i]);
-            int p=nums[i]-m;
-            mp=max(mp,p);
-        }
-        return mp;
+        // int mp=0;
+        // int m=nums[0];
+        // for(int i=0;i<nums.size();i++)
+        // {
+        //     m=min(m,nums[i]);
+        //     int p=nums[i]-m;
+        //     mp=max(mp,p);
+        // }
+        // return mp;
     }
 };
