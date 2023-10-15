@@ -2,25 +2,20 @@ class Solution {
 public:
     string removeDuplicates(string s) {
         string ans="";
-        int i=0;
-        while(i<s.length())
-        {
-            if(ans.length()>0 )
-            {
-                if(ans[ans.length()-1]==s[i])
-                {
-                   ans.pop_back();
-                }
-                else{
-                    ans.push_back(s[i]);
-                }
-            }
-            else{
-                 ans.push_back(s[i]);
-            }
-            
-            i++;
+       int i=0;
+      while(i<=s.length()-1)
+       {
+         if(ans.length()<1){
+           ans.push_back(s[i]);
+         }
+         else if(ans[ans.length()-1]==s[i]){
+           ans.pop_back();
+         }
+        else{
+          ans.push_back(s[i]);
         }
-       return ans;
+        i++;
+       }
+      return ans;
     }
 };
