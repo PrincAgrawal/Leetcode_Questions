@@ -6,17 +6,12 @@ public:
     int i=0;
     int j=s.length()-1;
     while(i<=j){
-      if(s[i]==s[j]){
+      if(s[i]!=s[j]){
+        return false;
+      }
         i++;
         j--;
-      }
-      else{
-        break;
-      }
     }
-    if(i<j)
-       return false;
-    else
       return true;
   }
     bool validPalindrome(string s) {
