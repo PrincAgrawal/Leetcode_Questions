@@ -1,24 +1,23 @@
 class Solution {
 public:
     string reverseOnlyLetters(string s) {
-        int l=0;
-        int h=s.length()-1;
-        while(l<=h)
+        int i=0;
+      int j=s.length()-1;
+      
+      while(i<=j)
+      {
+        if(isalpha(s[i]) && isalpha(s[j]))
         {
-            if(isalpha(s[l]) && isalpha(s[h]))
-            {
-                swap(s[l],s[h]);
-                l++;
-                h--;
-            }
-            else if(isalpha(s[l]))
-            {
-                h--;
-            }
-            else{
-                l++;
-            }
+          swap(s[i],s[j]);
+          i++,j--;
         }
-        return s;
+        else if(isalpha(s[i]))
+          j--;
+        else{
+          i++;
+        }
+      }
+      
+      return s;
     }
 };
