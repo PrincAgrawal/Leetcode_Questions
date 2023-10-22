@@ -15,7 +15,7 @@ public:
                     weightsum=arr[i];
                     if(countdays>days)
                       return false;
-                }
+                } 
                 else{
                     weightsum+=arr[i];
                 }
